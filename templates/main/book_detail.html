@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book.name}}.pdf下载{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='book_detail.css') }}">
+{% endblock %}
+
+{% block page_content %}
+<div class="sub_container">
+			<h1>{{ book.name }}.pdf</h1>
+			<br>
+
+			<h4 class="texts_orange">封面</h4>
+			<img src="{{ book.cover_image }}" class="post">
+			<br>
+			<br>
+
+			<h4 class="texts_orange">目录</h4>
+			<img src="{{ book.mulu_image }}" class="post">
+			<br>
+			<br>
+
+			<h4 class="texts_orange">样章</h4>
+			<img src="{{ book.yangzhang_image }}" class="post">
+
+			<div class="row download-padding">
+				<div  class="col-xs-6 col-sm-6 col-md-6 col-lg-6 download-spare">
+					<a class="btn btn-warning" href="{{ url_for('main.spare_book_download', book_id=book.id) }}"  target="_blank">备用下载链接</a>
+				</div>
+
+				<div  class="col-xs-6 col-sm-6 col-md-6 col-lg-6 download">
+					<a class="btn btn-primary" href="{{ url_for('main.book_download', book_id=book.id) }}"  target="_blank">点击前往网盘下载</a>
+				</div>
+			</div>
+</div>
+{% endblock %}

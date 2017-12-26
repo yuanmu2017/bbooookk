@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}instagrams{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='instagrams.css') }}">
+{% endblock %}
+
+{% block page_content %}
+
+<div class="row out-row">
+	<div class="alert alert-success col-md-6 col-md-offset-3" role="alert">如需解压密码，本站所有文件的解压密码都是：http://www.bbooookk.com</div>
+</div>
+
+{% for instagram in instagrams %}
+<div class="row row-margin">
+    <div class="col-md-6 col-md-offset-3 instagram">
+        <a href="{{ url_for('main.instagram_detail',instagram_id=instagram.id) }}">
+            <img src="{{ instagram.cover_image }}" class="post">
+        </a>
+        <h4 class="texts">{{ instagram.intro }}</h4>
+
+        {% if current_user.is_authenticated %}
+        <div class="download-padding">
+				<div  class="edit_instagram">
+					<a class="btn btn-primary" href="{{ url_for('main.edit_instagram', instagram_id=instagram.id) }}">修改</a>
+				</div>
+
+				<div  class="delete_instagram">
+					<a class="btn btn-danger" href="{{ url_for('main.delete_instagram', instagram_id=instagram.id) }}">删除</a>
+				</div>
+
+                <div  class="delete_instagram">
+					<a class="btn btn-info" href="#">下载次数：{{ instagram.download_count }}</a>
+				</div>
+			</div>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+
+{% if pagination %}
+<div class="pagination-wrapper">
+   {{ macros.pagination_widget(pagination, 'main.instagrams_by_tag', tag=tag) }}
+</div>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+

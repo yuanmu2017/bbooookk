@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}{{ author }}—pdf电子书下载{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='books.css') }}">
+{% endblock %}
+
+{% block page_content %}
+<div class="row flash-message">
+	<div class="alert alert-success" role="alert">如需解压密码，本站所有文件的解压密码都是：http://www.bbooookk.com</div>
+</div>
+{% for item in items %}
+{% if item|length == 2 %}
+<div class="row out-row">
+		<div class="col-md-6 col-lg-6">
+			<div class="row inner-row">
+				<div class="col-md-4 col-lg-4 padding-dismissing">
+					<a href="{{ url_for('main.book_detail',book_id=item[0].id) }}">
+						<img  src="{{ item[0].cover_image_thumb }}"  class="post_border"/>
+					</a>
+				</div>
+				<div class="col-md-8 col-lg-8">
+					<a href="{{ url_for('main.book_detail',book_id=item[0].id) }}">
+						<h3 class="title-margin">
+							{{ item[0].name }}
+						</h3>
+					</a>
+
+
+					<h5 class="author">{{ item[0].author }}</h5>
+
+
+					<h5 class="intro intro-min-height">
+						{{ item[0].intro }}
+					</h5>
+
+					<div class="row label-and-download-row">
+						<div class="col-md-6 col-lg-6">
+						<a href="{{ url_for('main.books_by_subtag',subtag=item[0].sub_tag) }}" class="btn-sm btn-info">{{ item[0].sub_tag }}</a>
+						</div>
+						<div class="col-md-6 col-lg-6 download-align">
+						<a href="{{ url_for('main.book_download', book_id=item[0].id) }}" class="btn-sm btn-primary" target="_blank">下载</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% if current_user.is_authenticated %}
+			<div class="edit_book">
+				<a class="btn btn-primary" href="{{ url_for('main.edit_book', book_id=item[0].id) }}">修改</a>
+			</div>
+
+			<div class="delete_book">
+				<a class="btn btn-danger" href="{{ url_for('main.delete_book', book_id=item[0].id) }}">删除</a>
+			</div>
+
+			<div class="edit_book">
+				<a class="btn btn-info" href="#">下载次数:  {{ item[0].download_count }}</a>
+			</div>
+			{% endif %}
+		</div>
+
+		<div class="col-md-6 col-lg-6">
+			<div class="row inner-row">
+				<div class="col-md-4 col-lg-4 padding-dismissing">
+					<a href="{{ url_for('main.book_detail',book_id=item[1].id) }}">
+						<img  src="{{ item[1].cover_image_thumb }}"  class="post_border"/>
+					</a>
+				</div>
+				<div class="col-md-8 col-lg-8">
+					<a href="{{ url_for('main.book_detail',book_id=item[1].id) }}">
+						<h3 class="title-margin">
+							{{ item[1].name }}
+						</h3>
+					</a>
+
+
+					<h5 class="author">{{ item[1].author }}</h5>
+
+					<h5 class="intro intro-min-height">
+						{{ item[1].intro }}
+					</h5>
+					<div class="row label-and-download-row">
+						<div class="col-md-6 col-lg-6">
+						<a href="{{ url_for('main.books_by_subtag',subtag=item[1].sub_tag) }}" class="btn-sm btn-info">{{ item[1].sub_tag }}</a>
+						</div>
+						<div class="col-md-6 col-lg-6 download-align">
+						<a href="{{ url_for('main.book_download', book_id=item[1].id) }}" class="btn-sm btn-primary" target="_blank">下载</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% if current_user.is_authenticated %}
+			<div class="edit_book">
+				<a class="btn btn-primary" href="{{ url_for('main.edit_book', book_id=item[1].id) }}">修改</a>
+			</div>
+
+			<div class="delete_book">
+				<a class="btn btn-danger" href="{{ url_for('main.delete_book', book_id=item[1].id) }}">删除</a>
+			</div>
+
+			<div class="edit_book">
+				<a class="btn btn-info" href="#">下载次数:  {{ item[1].download_count }}</a>
+			</div>
+			{% endif %}
+		</div>
+</div>
+
+{% else %}
+
+<div class="row out-row">
+		<div class="col-md-6 col-lg-6">
+			<div class="row inner-row">
+				<div class="col-md-4 col-lg-4 padding-dismissing">
+					<a href="{{ url_for('main.book_detail',book_id=item[0].id) }}">
+						<img  src="{{ item[0].cover_image_thumb }}"  class="post_border"/>
+					</a>
+				</div>
+				<div class="col-md-8 col-lg-8">
+					<a href="{{ url_for('main.book_detail',book_id=item[0].id) }}">
+						<h3 class="title-margin">
+							{{ item[0].name }}
+						</h3>
+					</a>
+
+
+					<h5 class="author">{{ item[0].author }}</h5>
+
+
+					<h5 class="intro intro-min-height">
+						{{ item[0].intro }}
+					</h5>
+
+					<div class="row label-and-download-row">
+						<div class="col-md-6 col-lg-6">
+						<a href="{{ url_for('main.books_by_subtag',subtag=item[0].sub_tag) }}" class="btn-sm btn-info">{{ item[0].sub_tag }}</a>
+						</div>
+						<div class="col-md-6 col-lg-6 download-align">
+						<a href="{{ url_for('main.book_download', book_id=item[0].id) }}" class="btn-sm btn-primary" target="_blank">下载</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% if current_user.is_authenticated %}
+			<div class="edit_book">
+				<a class="btn btn-primary" href="{{ url_for('main.edit_book', book_id=item[0].id) }}">修改</a>
+			</div>
+
+			<div class="delete_book">
+				<a class="btn btn-danger" href="{{ url_for('main.delete_book', book_id=item[0].id) }}">删除</a>
+			</div>
+
+			<div class="edit_book">
+				<a class="btn btn-info" href="#">下载次数:  {{ item[0].download_count }}</a>
+			</div>
+
+			{% endif %}
+		</div>
+</div>
+
+{%endif %}
+{% endfor %}
+
+{% if pagination %}
+<div class="pagination-wrapper">
+   {{ macros.pagination_widget(pagination, 'main.books_by_author', author=author) }}
+</div>
+{% endif %}
+{% endblock %}

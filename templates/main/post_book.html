@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}提交电子书{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>提交电子书:</h1>
+</div>
+<div>
+    {{ wtf.quick_form(form) }}
+</div>
+
+<div class="add_margin"></div>
+
+{% endblock %}

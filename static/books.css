@@ -1,0 +1,86 @@
+.out-row{
+	margin: 10px;
+	margin-top: -10px;
+}
+
+
+.inner-row {
+	margin: 10px;
+	border: 1px solid #E9E9E9;
+	background: #ffffff;
+}
+
+.padding-dismissing {
+	padding: 0px;
+}
+
+
+.post_border{
+    width: 100%;
+	display: block;
+	background-color: #EFEFEF;
+	border: 1px solid #E9E9E9;
+}
+
+.intro-min-height{
+    min-height: 60px;
+}
+
+
+
+.title-margin {
+	margin-top: 10px;
+}
+
+
+
+
+.author {
+	margin-top: 10px;
+	color: #AFAFAF;
+}
+
+
+.intro{
+	margin-top: 20px;
+	line-height: 1.6em;
+}
+
+
+.label-and-download-row {
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.download-align{
+	text-align: right;
+}
+
+
+.edit_book {
+    margin-left: 10px;
+    display: inline;
+}
+
+.delete_book {
+    margin-left: 10px;
+    display: inline;
+}
+
+.pagination-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.flash-message {
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: -20px;
+}
+
+
+

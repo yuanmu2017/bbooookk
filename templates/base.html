@@ -1,0 +1,67 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}pdf电子书下载{% endblock %}
+
+
+{% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{url_for('static', filename = 'favicon.ico')}}">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='base.css') }}">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li {% if tag=='文学' %} class="active"{% endif %}><a href="{{ url_for('main.books_by_tag', tag='文学') }}" >文学</a></li>
+                <li {% if tag=='历史' %} class="active"{% endif %}><a href="{{ url_for('main.books_by_tag', tag='历史') }}">历史</a></li>
+                <li {% if tag=='心理' %} class="active"{% endif %}><a href="{{ url_for('main.books_by_tag', tag='心理') }}">心理</a></li>
+                <li {% if tag=='写真' %} class="active"{% endif %}><a href="{{ url_for('main.instagrams_by_tag', tag='写真') }}">写真</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('auth.login_state')}}">登录状态</a></li>
+                {% endif %}
+            </ul>
+
+
+            {% if current_user.is_authenticated %}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url_for('auth.logout') }}">退出</a> </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        投稿<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('main.post_book') }}">电子书</a></li>
+                        <li><a href="{{ url_for('main.post_instagram') }}">Instagram</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,47 @@
+.row-margin {
+	margin-top: 40px;
+	margin-bottom: 100px;
+}
+
+
+.instagram{
+	background-color: #FFFFFF;
+	border: 1px solid #E9E9E9;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	padding: 0px;
+}
+
+
+.text-center {
+	text-align: center;
+}
+
+
+.texts{
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 1.6em;
+}
+
+.post {
+	width: 100%;
+	display: block;
+	background-color: #EFEFEF;
+}
+
+.download{
+	text-align: left;
+}
+
+.download-spare{
+	text-align: right;
+}
+
+.download-padding {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-bottom: -10px;
+}

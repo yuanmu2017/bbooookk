@@ -1,0 +1,60 @@
+.out-row{
+	margin-top: -20px;
+}
+
+
+.row-margin {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.instagram{
+	background-color: #FFFFFF;
+	border: 1px solid #E9E9E9;
+	border-radius: 4px;
+	padding: 0px;
+}
+
+.post {
+	width: 100%;
+	display: block;
+	background-color: #EFEFEF;
+}
+
+
+.texts{
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 1.6em;
+}
+
+
+.pagination-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+
+
+.download-padding {
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+
+
+.delete_instagram{
+    margin-left: 10px;
+    display: inline;
+}
+
+.edit_instagram {
+    margin-left: 0px;
+    display: inline;
+}
+
+
+
+
