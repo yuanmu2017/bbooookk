@@ -9,7 +9,7 @@ class Config:
 
 
 class DevelopmentConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:yuan542457@bbooookk.com/bbooookk'
 
 
 class ProductionConfig(Config):
